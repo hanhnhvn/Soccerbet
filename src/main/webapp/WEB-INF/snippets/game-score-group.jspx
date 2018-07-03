@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<jsp:root version="2.0" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:tiles="http://tiles.apache.org/tags-tiles" xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions" xmlns:spring="http://www.springframework.org/tags"
+	xmlns:util="urn:jsptagdir:/WEB-INF/tags/util">
+	<tiles:importAttribute />
+
+	<li data-role="list-divider">${title}</li>
+	<c:forEach var="game" items="${games}">
+		<spring:url value="/images/team/tiny/${game.teamAway.externalTeamId}.png" var="team_away_img" />
+		<spring:url value="/images/team/tiny/${game.teamHome.externalTeamId}.png" var="team_home_img" />
+		<li class="topPaddingFix">
+			<div style="float: right; padding-top: 3px;">
+				<c:choose>
+					<c:when test="${game.gameStatus == 'UPCOMMING'}">
+						<fmt:formatDate value="${game.kickOff}" type="both" timeStyle="short" dateStyle="short" />
+					</c:when>
+					<c:otherwise>
+						${game.scoreHome} : ${game.scoreAway}
+					</c:otherwise>
+				</c:choose>
+			</div>
+			<div style="clear: both; height: 12px; display: inline-block;">
+				<img src="${team_home_img}" style="float: left;" />
+				<span class="dashCaption" style="margin-right: 4px;">
+					<spring:message code="team_${fn:toLowerCase(fn:replace(game.teamHome.name,' ','_'))}" text="${game.teamHome.name}" />
+					-
+				</span>
+				<img src="${team_away_img}" style="float: left;" />
+				<span class="dashCaption">
+					<spring:message code="team_${fn:toLowerCase(fn:replace(game.teamAway.name,' ','_'))}" text="${game.teamAway.name}" />
+
+				</span>
+			</div>
+		</li>
+	</c:forEach>
+</jsp:root>

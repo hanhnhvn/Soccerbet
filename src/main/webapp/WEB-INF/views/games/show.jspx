@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_eu_zomtec_em2012_domain_Game" object="${game}" path="/games" z="HAv8+yIY8j+ZBwx05bxILr339eE=">
+        <field:display date="true" dateTimePattern="${game_kickoff_date_format}" field="kickOff" id="s_eu_zomtec_em2012_domain_Game_kickOff" object="${game}" z="MaXovB+XqJy4d4JNuUe7npZ4Nps="/>
+        <field:display field="teamHome" id="s_eu_zomtec_em2012_domain_Game_teamHome" object="${game}" z="BMOUrRGXY4qF2f1b7FjWl59/r2c="/>
+        <field:display field="teamAway" id="s_eu_zomtec_em2012_domain_Game_teamAway" object="${game}" z="wQJogrud5P1eC5jq2CCbnmnvBmQ="/>
+        <field:display field="scoreHome" id="s_eu_zomtec_em2012_domain_Game_scoreHome" object="${game}" z="eXTghhMiai866GHxyDoeMW+ghKc="/>
+        <field:display field="scoreAway" id="s_eu_zomtec_em2012_domain_Game_scoreAway" object="${game}" z="FliNjyNxcvULn//z9l9/hCD/2jQ="/>
+        <field:display field="gameStatus" id="s_eu_zomtec_em2012_domain_Game_gameStatus" object="${game}" z="5JvqiDN86fdACtEo7lQm4LyE8Ss="/>
+        <field:display date="true" dateTimePattern="${game_lastscoreupdate_date_format}" field="lastScoreUpdate" id="s_eu_zomtec_em2012_domain_Game_lastScoreUpdate" object="${game}" z="J/nbP2r7SicpWTW//B8UXEeh5No="/>
+        <field:display field="gameGroup" id="s_eu_zomtec_em2012_domain_Game_gameGroup" object="${game}" z="W1WfzLT9G3GaXU+ZKVPH2yXw6hQ="/>
+        <field:display field="externalGameId" id="s_eu_zomtec_em2012_domain_Game_externalGameId" object="${game}" z="ibI/W5hF+acB2OW+jedb1JOZuF0="/>
+    </page:show>
+</div>

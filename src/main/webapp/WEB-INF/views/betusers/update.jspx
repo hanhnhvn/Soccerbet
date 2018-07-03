@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_eu_zomtec_em2012_domain_BetUser" modelAttribute="betUser" path="/betusers" versionField="Version" z="K9Q+aZQCQICamPW6ma7aiRoEThM=">
+        <field:input field="username" id="c_eu_zomtec_em2012_domain_BetUser_username" max="30" min="3" required="true" z="QlsXGaGfkfSbpwj6VVV4Y5xwTcc="/>
+        <field:textarea field="password" id="c_eu_zomtec_em2012_domain_BetUser_password" required="true" z="HSjroI6raSyVPYAm0QnoOXPUkGI="/>
+        <field:select field="roles" id="c_eu_zomtec_em2012_domain_BetUser_roles" itemValue="id" items="${betuserroles}" multiple="true" path="/betuserroles" z="d2R64qa1uEabeXYto4CoEY9Zvd0="/>
+        <field:checkbox field="enabled" id="c_eu_zomtec_em2012_domain_BetUser_enabled" z="vZcn2sPV3OMIkUZAi/ZXatzWm/g="/>
+        <field:input field="email" id="c_eu_zomtec_em2012_domain_BetUser_email" required="true" validationMessageCode="field_invalid_email" z="yGBT6qW7ad8XWPL9XPasWclra4E="/>
+        <field:input field="money" id="c_eu_zomtec_em2012_domain_BetUser_money" validationMessageCode="field_invalid_integer" z="Hl8ZZVQEY8dOKeTHtsaRlOHpks8="/>
+    </form:update>
+</div>

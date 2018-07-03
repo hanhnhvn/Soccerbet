@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:menu="urn:jsptagdir:/WEB-INF/tags/menu" id="menu" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <menu:menu id="_menu" z="nZaf43BjUg1iM0v70HJVEsXDopc=">
+        <menu:category id="c_teamgroup" z="BAZM9eO4biUEN1fMm7P+99wyFiQ=">
+            <menu:item id="i_teamgroup_new" messageCode="global_menu_new" url="/teamgroups?form" z="gEj1Q20ANeXG5GZ1QC3Ntfz5Fk8="/>
+            <menu:item id="i_teamgroup_list" messageCode="global_menu_list" url="/teamgroups?page=1&amp;size=${empty param.size ? 10 : param.size}" z="YuUgJKYLUhEi7RLSomMQDCxISio="/>
+        </menu:category>
+        <menu:category id="c_game" z="2kd/06qS5R1ulGaBKqjkf+qriAA=">
+            <menu:item id="i_game_new" messageCode="global_menu_new" url="/games?form" z="cbApva5tgrDz/jmFy9M1rtm6WvQ="/>
+            <menu:item id="i_game_list" messageCode="global_menu_list" url="/games?page=1&amp;size=${empty param.size ? 10 : param.size}" z="48NWieNgYE1J83qxtuhIJZ761Oc="/>
+        </menu:category>
+        <menu:category id="c_bet" z="DoCrICl7ReDroHyhwj0AZH2iya4=">
+            <menu:item id="i_bet_new" messageCode="global_menu_new" url="/bets?form" z="KcC/Wlf6wLwfmosMce0nbpzMJgQ="/>
+            <menu:item id="i_bet_list" messageCode="global_menu_list" url="/bets?page=1&amp;size=${empty param.size ? 10 : param.size}" z="5P4Xj+CI7ttjkqQQCSpaqpVVlrE="/>
+        </menu:category>
+        <menu:category id="c_team" z="ohZmKV2mHAiozGa+l7W8lVsp36Q=">
+            <menu:item id="i_team_new" messageCode="global_menu_new" url="/teams?form" z="4tXqOwL6AGKXY3eI3MjIlHBiYRc="/>
+            <menu:item id="i_team_list" messageCode="global_menu_list" url="/teams?page=1&amp;size=${empty param.size ? 10 : param.size}" z="e0UEGo6L31cC31D4lgkjPEbpROM="/>
+        </menu:category>
+        <menu:category id="c_gamegroup" z="94J/TF2tI8l9RBY+Iod7mRezimY=">
+            <menu:item id="i_gamegroup_new" messageCode="global_menu_new" url="/gamegroups?form" z="G4v8BQ7IUC8+lehG0rR2hxaGtTY="/>
+            <menu:item id="i_gamegroup_list" messageCode="global_menu_list" url="/gamegroups?page=1&amp;size=${empty param.size ? 10 : param.size}" z="dp9HJNhhsGp7olgVTMlpF6HXtq4="/>
+        </menu:category>
+        <menu:category id="c_betuser" z="VskaQTx5Px2+3P67I32noSxnYRM=">
+            <menu:item id="i_betuser_new" messageCode="global_menu_new" url="/betusers?form" z="whx+jrAkhhx1XNzBPjNJuwLbP+0="/>
+            <menu:item id="i_betuser_list" messageCode="global_menu_list" url="/betusers?page=1&amp;size=${empty param.size ? 10 : param.size}" z="DxXu6zL2fh16gIWgq+CfVXmcXYg="/>
+        </menu:category>
+        <menu:category id="c_betuserrole" z="YWfseyTRs0oJ5mNU1F73RNzEVRM=">
+            <menu:item id="i_betuserrole_new" messageCode="global_menu_new" url="/betuserroles?form" z="SU2DDlHUeWBLk3e8A6kPnLz+4w8="/>
+            <menu:item id="i_betuserrole_list" messageCode="global_menu_list" url="/betuserroles?page=1&amp;size=${empty param.size ? 10 : param.size}" z="9s4dGqZXvTXfkKAZo+1M6N0ihvU="/>
+        </menu:category>
+        <menu:category id="c_controller" z="nj8Dm3hojIyIEyPkwE1UMDIs+K8=">
+            <menu:item id="i_controller__startindex_id" messageCode="global_generic" url="/start/index" z="pDVBjkztM24JcvodGD4//gEAz4o="/>
+            <menu:item id="i_controller__publicindex_id" messageCode="global_generic" url="/public/index" z="pQ1/bCC9eSkj/R1yUF3Xo1GqmUk="/>
+            <menu:item id="i_controller__adminindex_id" messageCode="global_generic" url="/admin/index" z="Vqqut04Ar2YjWWvud7/zWavBC+8="/>
+        </menu:category>
+        <menu:category id="c_news" z="/GYP5OCuHDR51pEBl2hXSgh9Kzs=">
+            <menu:item id="i_news_new" messageCode="global_menu_new" url="/news?form" z="KKGmhlBtoqXdUbIsLPG2pR5jcbw="/>
+            <menu:item id="i_news_list" messageCode="global_menu_list" url="/news?page=1&amp;size=${empty param.size ? 10 : param.size}" z="Z3jXJYPsEw3tWVe0eJEvD8n+vQg="/>
+        </menu:category>
+    </menu:menu>
+</div>

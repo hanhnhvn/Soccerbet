@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_eu_zomtec_em2012_domain_Bet" items="${bets}" z="poHbGMvNLDkXWiqt/5X5MKt7PD4=">
+        <table:table data="${bets}" id="l_eu_zomtec_em2012_domain_Bet" path="/bets" z="UIYrRcZi8T3ubIYsX7e8zY9s0EM=">
+            <table:column id="c_eu_zomtec_em2012_domain_Bet_betUser" property="betUser" z="0G7YsSmLuIMIBUEPlKdfK8FvtGk="/>
+            <table:column id="c_eu_zomtec_em2012_domain_Bet_game" property="game" z="QlF6VHCt/YVxrj814PUa4hGvFtc="/>
+            <table:column id="c_eu_zomtec_em2012_domain_Bet_scoreHome" property="scoreHome" z="tSAxRQRvhb69mFqzYK37l0fnLl4="/>
+            <table:column id="c_eu_zomtec_em2012_domain_Bet_scoreAway" property="scoreAway" z="UjnEz+2T4pj47JRG+zU2lWUvMwY="/>
+            <table:column date="true" dateTimePattern="${bet_lastbetchange_date_format}" id="c_eu_zomtec_em2012_domain_Bet_lastBetChange" property="lastBetChange" z="rZkFnC7SzwdCoJirx+F+RRH0/hg="/>
+            <table:column date="true" dateTimePattern="${bet_lastbetcalculation_date_format}" id="c_eu_zomtec_em2012_domain_Bet_lastBetCalculation" property="lastBetCalculation" z="ksFduGKKQX6ac8h8sps0nOPgIkU="/>
+        </table:table>
+    </page:list>
+</div>

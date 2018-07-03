@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_eu_zomtec_em2012_domain_GameGroup" items="${gamegroups}" z="nAvVND0Kz5YX/+ZQBqgn3AEhdQ4=">
+        <table:table data="${gamegroups}" id="l_eu_zomtec_em2012_domain_GameGroup" path="/gamegroups" z="3TbDzNaj6gPXemkdZgikkiq4ydo=">
+            <table:column id="c_eu_zomtec_em2012_domain_GameGroup_name" property="name" z="l+vusfS92NQP5dovFpVJk272ry8="/>
+            <table:column id="c_eu_zomtec_em2012_domain_GameGroup_sortOrder" property="sortOrder" z="d4gtBw5adkMA80f/sDviXxAG5zM="/>
+            <table:column id="c_eu_zomtec_em2012_domain_GameGroup_factor" property="factor" z="YDvD6Wsw5Xz7hPV1JOFOAFSQlm8="/>
+        </table:table>
+    </page:list>
+</div>

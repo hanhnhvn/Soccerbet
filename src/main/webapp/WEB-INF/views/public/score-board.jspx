@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<jsp:root version="2.0" xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:tiles="http://tiles.apache.org/tags-tiles"
+	xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:spring="http://www.springframework.org/tags"
+	xmlns:util="urn:jsptagdir:/WEB-INF/tags/util">
+
+	<div data-role="header" data-position="fixed">
+		<h1>
+			<spring:message code="score_boards" htmlEscape="false"/>
+		</h1>
+	</div>
+	<!-- /header -->
+
+	<div data-role="content">
+		<c:if test="${not empty scores_final}">
+			<h2><spring:message code="scores_final"/></h2>
+			<p><spring:message code="scores_final_description"/></p>
+			
+			<ul data-role="listview" data-inset="true">
+				<c:forEach items="${scores_final}" var="score">
+					<tiles:insertTemplate template="/WEB-INF/snippets/score-list-entry.jsp">
+						<tiles:putAttribute name="score" value="${score}"/>
+					</tiles:insertTemplate>
+				</c:forEach>	
+			</ul>
+		</c:if>
+		
+		<c:if test="${not empty scores_temp}">
+			<h2><spring:message code="scores_temp"/></h2>
+			<p><spring:message code="scores_temp_description"/></p>
+			
+			<ul data-role="listview" data-inset="true">
+				<c:forEach items="${scores_temp}" var="score">
+					<tiles:insertTemplate template="/WEB-INF/snippets/score-list-entry.jsp">
+						<tiles:putAttribute name="score" value="${score}"/>
+					</tiles:insertTemplate>
+				</c:forEach>	
+			</ul>
+		</c:if>
+	</div>
+	<!-- /content -->
+</jsp:root>

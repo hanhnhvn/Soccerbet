@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_eu_zomtec_em2012_domain_GameGroup" modelAttribute="gameGroup" path="/gamegroups" versionField="Version" z="iUNRSQy2RQq3Hvd4C95tp60oPRU=">
+        <field:input field="name" id="c_eu_zomtec_em2012_domain_GameGroup_name" required="true" z="F57uFdHsy9WXLiyjn3HfCKBwVM4="/>
+        <field:input field="sortOrder" id="c_eu_zomtec_em2012_domain_GameGroup_sortOrder" validationMessageCode="field_invalid_integer" z="zBb+JdoyT+RFQTOsOO59D/XDwZk="/>
+        <field:input field="factor" id="c_eu_zomtec_em2012_domain_GameGroup_factor" validationMessageCode="field_invalid_integer" z="dNiuEOSK7DnUxIQomxwALoBTOx8="/>
+    </form:update>
+</div>

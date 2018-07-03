@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_eu_zomtec_em2012_domain_Game" items="${games}" z="1AoQqt2MjF9EkyNLjrlnTaH9q04=">
+        <table:table data="${games}" id="l_eu_zomtec_em2012_domain_Game" path="/games" z="WJVSOpfhT72jmJI/Vtbol9t38Dc=">
+            <table:column date="true" dateTimePattern="${game_kickoff_date_format}" id="c_eu_zomtec_em2012_domain_Game_kickOff" property="kickOff" z="W6nAdYrRW4NTDK8c5kMPFxdqoPU="/>
+            <table:column id="c_eu_zomtec_em2012_domain_Game_teamHome" property="teamHome" z="0azF1s05EPktONFZ5Ezrq7NB8BY="/>
+            <table:column id="c_eu_zomtec_em2012_domain_Game_teamAway" property="teamAway" z="WOubHKvXzYxhhBTcPQ+DKSajTV0="/>
+            <table:column id="c_eu_zomtec_em2012_domain_Game_scoreHome" property="scoreHome" z="ZU570rRF77FrKgsrfNuug3D0zTo="/>
+            <table:column id="c_eu_zomtec_em2012_domain_Game_scoreAway" property="scoreAway" z="cKEJYAyJSCU94/R1nfgH7U//6R0="/>
+            <table:column id="c_eu_zomtec_em2012_domain_Game_gameStatus" property="gameStatus" z="a6uB88aDtTNeRvgP9YI25dXA/Rs="/>
+        </table:table>
+    </page:list>
+</div>

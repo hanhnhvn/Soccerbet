@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_eu_zomtec_em2012_domain_BetUser" items="${betusers}" z="TgMzRR9pJrZquVCGkjXM6RzQOyc=">
+        <table:table data="${betusers}" id="l_eu_zomtec_em2012_domain_BetUser" path="/betusers" z="SKs1nZqFah/nGDYH2Sijl7C/6uE=">
+            <table:column id="c_eu_zomtec_em2012_domain_BetUser_username" property="username" z="8kXx/Ey6VN23YiOVzDrFILHOcm0="/>
+            <table:column id="c_eu_zomtec_em2012_domain_BetUser_password" property="password" z="M09H3BIjoFty1TokST+i+96nnL0="/>
+            <table:column id="c_eu_zomtec_em2012_domain_BetUser_roles" property="roles" z="b3Eqz09ZF59gbGVWK4JMsoZvihE="/>
+            <table:column id="c_eu_zomtec_em2012_domain_BetUser_enabled" property="enabled" z="XAHCwn+qjxNb/b0X60CK6Yd6UfE="/>
+            <table:column id="c_eu_zomtec_em2012_domain_BetUser_email" property="email" z="nNtoAPFgZs9on7ad8eLX8NFltrk="/>
+            <table:column id="c_eu_zomtec_em2012_domain_BetUser_money" property="money" z="fhPzh64LrRsTkI/+W3WJdMekDZw="/>
+        </table:table>
+    </page:list>
+</div>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_eu_zomtec_em2012_domain_BetUser" object="${betuser}" path="/betusers" z="Wc70eQTCPYSCnCpic5ZypzQcrek=">
+        <field:display field="username" id="s_eu_zomtec_em2012_domain_BetUser_username" object="${betuser}" z="cf8G+L1WxDLYJadqVzA1vPGHA2w="/>
+        <field:display field="password" id="s_eu_zomtec_em2012_domain_BetUser_password" object="${betuser}" z="T5UJcjIjwCR89WveyfcTRgqaJco="/>
+        <field:display field="roles" id="s_eu_zomtec_em2012_domain_BetUser_roles" object="${betuser}" z="qGUK5fA+dXxlrqauEfom6kgwgoU="/>
+        <field:display field="enabled" id="s_eu_zomtec_em2012_domain_BetUser_enabled" object="${betuser}" z="iv/CyjM0HzzmgINGeuMQ+fTF6xQ="/>
+        <field:display field="email" id="s_eu_zomtec_em2012_domain_BetUser_email" object="${betuser}" z="orRqnB8W+oF9S3ea++baavPQ0kI="/>
+        <field:display field="money" id="s_eu_zomtec_em2012_domain_BetUser_money" object="${betuser}" z="brNV0RA9uEGcTkT+aQjRAXFWm6U="/>
+    </page:show>
+</div>

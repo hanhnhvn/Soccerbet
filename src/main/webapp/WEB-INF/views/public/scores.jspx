@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<jsp:root version="2.0" xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:tiles="http://tiles.apache.org/tags-tiles"
+	xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:spring="http://www.springframework.org/tags"
+	xmlns:util="urn:jsptagdir:/WEB-INF/tags/util">
+
+	<div data-role="header" data-position="fixed">
+		<h1>
+			<spring:message code="score_boards" htmlEscape="false"/>
+		</h1>
+	</div>
+	<!-- /header -->
+
+	<div data-role="content">
+		<spring:url value="/public/scores/final" var="scores_final_url"/>
+		<spring:url value="/public/scores/temp" var="scores_temp_url"/>
+		
+		<ul data-role="listview" data-inset="true">
+			<li>
+				<a href="${scores_final_url}">
+					<h1><spring:message code="scores_final"/></h1>
+					<p><spring:message code="scores_final_description"/></p>
+				</a>
+			</li>
+			
+			<li>
+				<a href="${scores_temp_url}">
+					<h1><spring:message code="scores_temp"/></h1>
+					<p><spring:message code="scores_temp_description"/></p>
+				</a>
+			</li>
+		</ul>
+	</div>
+	<!-- /content -->
+</jsp:root>

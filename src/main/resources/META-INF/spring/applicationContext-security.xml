@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+	<!-- HTTP security configurations -->
+	<http auto-config="true" use-expressions="true" >
+		<form-login login-processing-url="/resources/j_spring_security_check"
+			login-page="/login" authentication-failure-url="/login?login_error=t" />
+		<logout logout-url="/resources/j_spring_security_logout" />
+		<remember-me key="emzeu-auth" token-validity-seconds="8640000" use-secure-cookie="false" />
+
+		<!-- Configure these elements to secure URIs in your application -->
+		<intercept-url pattern="/bets/**" access="hasRole('ROLE_ADMIN')" />
+		<intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')" />
+		<intercept-url pattern="/betusers/**"
+			access="hasAnyRole('ROLE_ADMIN')" />
+		<intercept-url pattern="/betuserroles/**" access="hasRole('ROLE_ADMIN')" />
+		<intercept-url pattern="/games/**" access="hasRole('ROLE_ADMIN')" />
+		<intercept-url pattern="/news/**" access="hasRole('ROLE_ADMIN')" />
+		<intercept-url pattern="/gamegroups/**" access="hasRole('ROLE_ADMIN')" />
+		<intercept-url pattern="/teams/**" access="hasRole('ROLE_ADMIN')" />
+		<intercept-url pattern="/teamgroups/**" access="hasRole('ROLE_ADMIN')" />
+		<intercept-url pattern="/start/**" access="isAuthenticated()" />
+		<intercept-url pattern="/resources/**" access="permitAll" />
+		<intercept-url pattern="/images/**" access="permitAll" />
+		<intercept-url pattern="/js/**" access="permitAll" />
+		<intercept-url pattern="/styles/**" access="permitAll" />
+		<intercept-url pattern="/**" access="permitAll" />
+	</http>
+
+	<!-- Configure Authentication mechanism -->
+	<authentication-manager alias="authenticationManager">
+		<!-- DAO Based Security -->
+		<authentication-provider>
+			<password-encoder hash="sha-256" />
+			<jdbc-user-service data-source-ref="dataSource"
+				users-by-username-query="SELECT U.username AS username, U.password as password, U.enabled as enabled FROM bet_user U where U.username=?"
+				authorities-by-username-query="SELECT U.username as username, A.name as authority FROM bet_user U left join bet_user_roles UA on U.id=UA.bet_user left join bet_user_role A on UA.roles = A.id WHERE U.username=?" />
+		</authentication-provider>
+	</authentication-manager>
+
+	<!-- Security event logging -->
+	<beans:bean id="loggerListener"
+		class="org.springframework.security.authentication.event.LoggerListener" />
+</beans:beans>

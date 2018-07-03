@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:create id="fc_eu_zomtec_em2012_domain_Game" modelAttribute="game" path="/games" render="${empty dependencies}" z="RhzlqnWclJDNXpAAan79+FRaBfk=">
+        <field:datetime dateTimePattern="${game_kickoff_date_format}" field="kickOff" id="c_eu_zomtec_em2012_domain_Game_kickOff" required="true" z="/zm0n1+ZZLxT87IhjjCS1YgJ+S4="/>
+        <field:select field="teamHome" id="c_eu_zomtec_em2012_domain_Game_teamHome" itemValue="id" items="${teams}" path="/teams" required="true" z="kssTp6s/+IlvhG5LobhgcHQrOro="/>
+        <field:select field="teamAway" id="c_eu_zomtec_em2012_domain_Game_teamAway" itemValue="id" items="${teams}" path="/teams" required="true" z="2igzXaxv/w13F/SGhg4+m+q9KvQ="/>
+        <field:input field="scoreHome" id="c_eu_zomtec_em2012_domain_Game_scoreHome" validationMessageCode="field_invalid_integer" z="PE7aFlV/Gs5L1XbJ7OTOXG4uSYU="/>
+        <field:input field="scoreAway" id="c_eu_zomtec_em2012_domain_Game_scoreAway" validationMessageCode="field_invalid_integer" z="ytiTFFenRF2OhxAq1R2ZFoQLrnU="/>
+        <field:select field="gameStatus" id="c_eu_zomtec_em2012_domain_Game_gameStatus" items="${gamestatuses}" path="gamestatuses" required="true" z="maRSSZz9M/2JasUVGgvvW78OXKA="/>
+        <field:datetime dateTimePattern="${game_lastscoreupdate_date_format}" field="lastScoreUpdate" id="c_eu_zomtec_em2012_domain_Game_lastScoreUpdate" z="d6RhM9Prw+mbMU7P+JJDVZ1+mX0="/>
+        <field:select field="gameGroup" id="c_eu_zomtec_em2012_domain_Game_gameGroup" itemValue="id" items="${gamegroups}" path="/gamegroups" required="true" z="ybzW0LvdZ5C8nkp4ecUohBF30co="/>
+        <field:input field="externalGameId" id="c_eu_zomtec_em2012_domain_Game_externalGameId" required="true" validationMessageCode="field_invalid_integer" z="XsG7f1Y07Qh2DzoxeEAtXtWrvYE="/>
+    </form:create>
+    <form:dependency dependencies="${dependencies}" id="d_eu_zomtec_em2012_domain_Game" render="${not empty dependencies}" z="Y9k/1EuBkqsKIO9hAQBJzPjocmc="/>
+</div>

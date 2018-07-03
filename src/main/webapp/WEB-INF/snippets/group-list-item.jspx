@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<jsp:root version="2.0" xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:tiles="http://tiles.apache.org/tags-tiles"
+	xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:spring="http://www.springframework.org/tags"
+	xmlns:util="urn:jsptagdir:/WEB-INF/tags/util">
+	<li><tiles:importAttribute /> <c:url
+			value="games/${gameGroup.id}" var="gameGroupUrl" /> <a
+		href="${gameGroupUrl}"> <spring:message
+				code="game_group_${fn:toLowerCase(fn:replace(gameGroup.name,' ','_'))}"
+				text="${gameGroup.name}" /> <c:out value=" " /> <spring:message
+				code="points_factor_${gameGroup.factor}" /></a></li>
+</jsp:root>

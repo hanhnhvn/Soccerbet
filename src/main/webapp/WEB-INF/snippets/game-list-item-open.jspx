@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<jsp:root version="2.0" xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:tiles="http://tiles.apache.org/tags-tiles"
+	xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:spring="http://www.springframework.org/tags"
+	xmlns:util="urn:jsptagdir:/WEB-INF/tags/util">
+	<tiles:importAttribute />
+	
+	<c:choose>
+	<c:when test="${not empty bet}">
+		<c:set var="scoreHome" value="${bet.scoreHome}"/>
+		<c:set var="scoreAway" value="${bet.scoreAway}"/>
+	</c:when>
+	<c:otherwise>
+	</c:otherwise>
+	</c:choose>
+	
+	<spring:url value="/images/bet.png" var="bet_png"/>
+	<c:url value="game/${game.id}" var="gameUrl" />
+	<li>
+		<h1>
+			<spring:message code="team_${fn:toLowerCase(fn:replace(game.teamHome.name,' ','_'))}" text="${game.teamHome.name}" /> -
+			<spring:message code="team_${fn:toLowerCase(fn:replace(game.teamAway.name,' ','_'))}" text="${game.teamAway.name}" /></h1>
+		<p>
+			<fmt:formatDate value="${game.kickOff}" type="both" timeStyle="short"
+				dateStyle="short" />
+		</p>
+		<div class="clearfix betRoot">
+			<div style="${not empty bet?'':'display:none;'}" class="readBetContainer betContainer">
+				<a href="#" data-role="button" data-icon="gear" data-iconpos="notext" rel="external" class="editBet">Save</a>
+				<span class="readOnlyBetScore">${scoreHome} : ${scoreAway}</span>
+				<img src="${bet_png}" class="betImg"/>
+			</div>
+			<div style="${empty bet?'':'display:none;'}" class="placeBetContainer betContainer">
+				<form class="betForm" method="POST" action="#">
+					<input name="gameId" type="hidden" value="${game.id}" />
+					<input name="home" data-mini="true" value="${scoreHome}" size="2" maxlength="2"
+						class="inputBet" /><span>:</span><input name="away"
+						data-mini="true" value="${scoreAway}" size="2" maxlength="2" class="inputBet" />
+						<input type="submit" value="Save" data-role="button" data-icon="check"
+						data-iconpos="notext" rel="external" class="placeBet"/>
+				</form>
+			</div>
+		</div>
+	</li>
+</jsp:root>

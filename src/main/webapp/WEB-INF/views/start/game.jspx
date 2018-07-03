@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<jsp:root version="2.0" xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:tiles="http://tiles.apache.org/tags-tiles"
+	xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:spring="http://www.springframework.org/tags"
+	xmlns:util="urn:jsptagdir:/WEB-INF/tags/util">
+
+	<div data-role="header" data-position="fixed">
+		<h1>
+			<spring:message code="team_${fn:toLowerCase(fn:replace(game.teamHome.name,' ','_'))}" text="${game.teamHome.name}" /> -
+			<spring:message code="team_${fn:toLowerCase(fn:replace(game.teamAway.name,' ','_'))}" text="${game.teamAway.name}" />
+		</h1>
+	</div>
+	<!-- /header -->
+
+	<div data-role="content">
+		<c:if test="${not empty game}">
+			<spring:url value="/images/team/normal/${game.teamHome.externalTeamId}.png" var="team_home_img"/>
+			<spring:url value="/images/team/normal/${game.teamAway.externalTeamId}.png" var="team_away_img"/>
+		
+			<div class="ui-grid-b">
+				<div class="ui-block-a" style="text-align: center;">
+					<img
+						src="${team_home_img}" />
+					<h3 class="ellipses"><spring:message code="team_${fn:toLowerCase(fn:replace(game.teamHome.name,' ','_'))}" text="${game.teamHome.name}" /></h3>
+				</div>
+				<div class="ui-block-b" style="text-align: center;">
+					<h1>${game.scoreHome} : ${game.scoreAway}</h1>
+					<div class="ellipses">${game.gameStatus}</div>
+				</div>
+				<div class="ui-block-c" style="text-align: center;">
+					<img
+						src="${team_away_img}" />
+					<h3 class="ellipses"><spring:message code="team_${fn:toLowerCase(fn:replace(game.teamAway.name,' ','_'))}" text="${game.teamAway.name}" /></h3>
+				</div>
+			</div>
+			<!-- /grid-b -->
+			
+			<c:if test="${not game.betOpen}">
+				<h2><spring:message code="game_bets"/></h2>
+				
+				<c:if test="${not empty bets}">
+					<ul data-role="listview" data-inset="true" data-divider-theme="a">
+						<c:forEach items="${bets}" var="bet">
+							<c:if test="${not empty bet.score}">
+								<c:if test="${empty betPointGroup || betPointGroup != bet.score}">
+									<c:set var="betPointGroup" value="${bet.score}"/>
+									<li data-role="list-divider"><spring:message code="bet_score_group_${bet.score}" text="${bet.score} POINTS" />
+									<c:out value=" " />  <spring:message code="points_factor_${game.gameGroup.factor}" />
+									</li>
+								</c:if>
+							</c:if>
+				
+							<spring:url value="/start/user/${bet.betUser.id}" var="user_url"/>
+							<li><a href="${user_url}">${bet.betUser.username}
+								<div class="ui-li-count bubbleGroup"> 
+									<spring:url value="/images/bet.png" var="bet_png"/>
+									<div class="ui-li-count">
+										<c:choose>
+											<c:when test="${bet.score > 0}">+ ${bet.score}</c:when>
+											<c:otherwise>0</c:otherwise>
+										</c:choose>
+									</div>
+									<div class="ui-li-count"><img src="${bet_png}" class="left bubbleIcon"/> ${bet.scoreHome}:${bet.scoreAway}</div> 
+								</div>
+							</a></li>			
+						</c:forEach>
+					</ul>
+				</c:if>
+				
+				<c:if test="${empty bets}">
+					<p>No bets available for this game.</p>
+				</c:if>
+			</c:if>
+		</c:if>
+	</div>
+	<!-- /content -->
+</jsp:root>

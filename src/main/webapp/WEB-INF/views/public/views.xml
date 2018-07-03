@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+    <definition extends="bet" name="public/score-board">
+        <put-attribute name="body" value="/WEB-INF/views/public/score-board.jspx"/>
+    </definition>
+    <definition extends="bet" name="public/scores">
+        <put-attribute name="body" value="/WEB-INF/views/public/scores.jspx"/>
+    </definition>
+    
+    <definition extends="bet" name="public/news">
+        <put-attribute name="body" value="/WEB-INF/views/public/news.jspx"/>
+    </definition>
+    
+    <definition extends="bet" name="public/register">
+        <put-attribute name="body" value="/WEB-INF/views/public/register.jspx"/>
+    </definition>
+    
+    <definition name="public/dashboard" template="/WEB-INF/views/public/dashboard.jspx">
+    </definition>
+</tiles-definitions>

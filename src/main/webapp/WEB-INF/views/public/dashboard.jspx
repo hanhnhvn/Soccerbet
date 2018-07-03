@@ -1,0 +1,170 @@
+<html xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:tiles="http://tiles.apache.org/tags-tiles"
+	xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+	xmlns:spring="http://www.springframework.org/tags"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:sec="http://www.springframework.org/security/tags"
+	xmlns:util="urn:jsptagdir:/WEB-INF/tags/util">
+
+<jsp:output doctype-root-element="HTML" doctype-system="about:legacy-compat" />
+	
+<jsp:directive.page contentType="text/html;charset=UTF-8" />
+<jsp:directive.page pageEncoding="UTF-8" />
+
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no"/>
+<title>
+	WORLD CUP 2018 - DASHBOARD
+</title>
+<spring:url value="/styles/bet.css" var="bet_css" />
+<spring:url value="/js/dash.js" var="dash_js" />
+<spring:url value="/js/counter.js" var="count_js" />
+<spring:url value="/styles/jquery.mobile-1.1.0.min.css" var="jqm_css" />
+ <spring:url value="/js/jquery-1.6.4.min.js" var="jq_js" />
+
+<link rel="stylesheet" href="${jqm_css}" />
+<link rel="stylesheet" href="${bet_css}" />
+
+
+<script src="${jq_js}">
+<!-- dummy -->
+</script>
+<script src="${count_js}">
+<!-- dummy -->
+</script>
+<c:if test="${not empty nextGameTimeStamp}">
+<script type="text/javascript">
+	$(document).ready(function() {
+		if (${reload} > 0) {
+			if (${not empty runningGames}) {
+				setTimeout("location.reload(true);", ${reload}*1000);
+			}
+		}
+		
+		$('#counter').countdown({
+			stepTime : 60,
+			format : 'dd:hh:mm:ss',
+			startTime : "${nextGameTimeStamp}",
+			digitImages : 6,
+			digitWidth : 53,
+			digitHeight : 77,
+			timerEnd : function() {
+				setTimeout("location.reload(true);", 5000);
+			},
+			image : "../images/digits.png"
+		});
+	});
+</script>
+</c:if>
+<script
+	src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js">
+<!-- dummy -->
+</script>
+</head>
+
+<body>
+<spring:url value="/images/em2012.png" var="em2012_url"/>
+<div data-role="page">
+	<c:if test="${showHeader}">
+		<div data-role="header">
+			<h1>
+				WORLD CUP 2018
+			</h1>
+		</div>
+	</c:if>
+	
+	<!-- /header -->
+	<div data-role="content" class="reduceTopPadding">
+		<div class="ui-grid-a">
+			<div class="ui-block-a">
+			<c:if test="${not empty nextGameTimeStamp}">
+				<spring:url value="/images/team/normal/${nextGame.teamHome.externalTeamId}.png" var="team_home_img"/>
+				<spring:url value="/images/team/normal/${nextGame.teamAway.externalTeamId}.png" var="team_away_img"/>
+			
+			  <div style="width: 96%;">
+				<ul data-role="listview" data-inset="true" data-divider-theme="a">
+					<li data-role="list-divider">Next match</li>
+					<li>
+					<div>
+									<div style="width: 520px; margin: auto; margin-bottom:20px;">
+					<div id="counter">
+						<!-- dummy -->
+					</div>
+					<div class="desc">
+						<div>Days</div>
+						<div>Hours</div>
+						<div>Minutes</div>
+						<div style="margin-right: 0px;">Seconds</div>
+					</div>
+					<br style="clear: both;" />
+				</div>
+				<div class="ui-grid-b" style="width:450px; margin: auto;">
+					<div class="ui-block-a" style="text-align: center; width: 200px;">
+						<img
+							src="${team_home_img}" />
+						<h3 class="ellipses">
+							<spring:message code="team_${fn:toLowerCase(fn:replace(nextGame.teamHome.name,' ','_'))}" text="${nextGame.teamHome.name}" />
+						</h3>
+					</div>
+					<div class="ui-block-b" style="text-align: center; width: 50px;">
+						<h1 style="font-size:40px;">:</h1>
+					</div>
+					<div class="ui-block-c" style="text-align: center; width: 200px;">
+						<img
+							src="${team_away_img}" />
+						<h3 class="ellipses">
+							<spring:message code="team_${fn:toLowerCase(fn:replace(nextGame.teamAway.name,' ','_'))}" text="${nextGame.teamAway.name}" />
+						</h3>
+					</div>
+				</div>
+					</div>
+					</li>
+				</ul>
+			</div>
+
+			</c:if>
+		    <div style="width: 96%;">
+				<ul data-role="listview" data-inset="true" data-divider-theme="a">
+				    <c:if test="${not empty runningGames}">
+						<tiles:insertTemplate template="/WEB-INF/snippets/game-score-group.jspx">
+							<tiles:putAttribute name="title" value="Running matches"/>
+							<tiles:putAttribute name="games" value="${runningGames}"/>
+						</tiles:insertTemplate>
+					</c:if>
+				    <c:if test="${not empty finishedGames}">
+						<tiles:insertTemplate template="/WEB-INF/snippets/game-score-group.jspx">
+							<tiles:putAttribute name="title" value="Latest results"/>
+							<tiles:putAttribute name="games" value="${finishedGames}"/>
+						</tiles:insertTemplate>
+					</c:if>
+				    <c:if test="${not empty nextGames}">
+						<tiles:insertTemplate template="/WEB-INF/snippets/game-score-group.jspx">
+							<tiles:putAttribute name="title" value="Next matches"/>
+							<tiles:putAttribute name="games" value="${nextGames}"/>
+						</tiles:insertTemplate>
+					</c:if>
+			    </ul>
+		    </div>
+			</div>
+			<div class="ui-block-b">
+				<c:if test="${not empty scores_temp}">
+					<ul data-role="listview" data-inset="true" data-divider-theme="a">
+						<li data-role="list-divider"><spring:message code="scores_temp"/></li>
+						<c:forEach items="${scores_temp}" var="score">
+							<tiles:insertTemplate template="/WEB-INF/snippets/score-list-entry-dash.jsp">
+								<tiles:putAttribute name="score" value="${score}"/>
+							</tiles:insertTemplate>
+						</c:forEach>	
+					</ul>
+				</c:if>
+			</div>
+		</div><!-- /grid-a -->
+	</div>	
+</div>
+</body>
+</html>

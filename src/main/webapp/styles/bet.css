@@ -1,0 +1,168 @@
+h2 {
+	font-size: 1.1em;
+}
+
+p {
+	font-size: 0.9em;
+}
+a.editBet, input.placeBet, a.placeBet, form.betForm .ui-btn {
+	display: inline-block !important;
+	float: right !important;
+	margin-top: 4px !important;
+}
+
+span.readOnlyBetScore {
+	margin: 10px 10px 10px 4px;
+	float: right;
+}
+
+input.inputBet {
+	width: 20px;
+	display: inline-block;
+	text-align:center;
+}
+
+.left {
+	float:left;
+}
+
+img.bubbleIcon {
+	margin-right: 4px;	
+	margin-left:-2px;
+}
+
+img.emLogo {
+	width: 90%; 
+	max-width:320px;
+	margin:auto; 
+}
+.center {
+	text-align: center;
+}
+
+.block {text-align: justify;}
+
+
+/* bubble group */
+
+div.bubbleGroup {
+	border: 0 !important; 
+	background: 0 !important; 
+	padding-top: 8px !important;
+   	right: 41px !important;
+}
+
+div.bubbleGroup div.ui-li-count {
+	float: right;
+	display: inline-block;
+	position: static;
+	margin-left: 2px;
+	height: 14px;
+}
+
+@media only screen and (max-width: 460px) {
+	ul.portFix li div.bubbleGroup {
+	   	right: -70px !important;
+	   	position: relative !important;
+	   	display:block;
+	}
+	
+	ul.portFix li div.bubbleGroup div.ui-li-count {
+		margin-top:10px;
+	}
+	
+	
+	ul#usersBets li a div.bubbleGroup div.ui-li-count {
+		margin-top:30px;
+	}
+}
+
+
+/* betContainer */
+.betContainer {
+	width: 130px;
+	float: right;
+	display: block;
+	margin-top: -44px;
+	margin-right: -12px;	
+	z-index: 5px;
+}
+
+@media only screen and (max-width: 340px) {
+	.betContainer {
+		margin-top: -18px;
+	}
+}
+
+.betImg {
+	float: right;
+	margin-top:10px;
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.ui-li-heading {
+	margin: 0.4em 0 !important;
+}
+
+.ui-li-desc {
+	margin: 0em 0 0.6em !important;
+}
+
+.ellipses {
+	display:block;
+	white-space: nowrap;
+	width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+
+
+
+.cntSeparator {
+  font-size: 54px;
+  margin: 10px 7px;
+  color: #000;
+}
+.desc { margin-top: 10px;}
+
+.desc div {
+  float: left;
+  font-family: Arial;
+  width: 105px;
+  margin-right: 30px;
+  font-size: 13px;
+  text-align:center;
+  font-weight: bold;
+  color: #000;
+}
+
+span.dashCaption {
+	float: left; margin-left: 4px; margin-top: 2px; 
+}
+
+li.topPaddingFix {
+	padding-top:4px !important;
+}
+
+@-moz-document url-prefix() { 
+	span.dashCaption {
+		float: left; margin-left: 4px; margin-top: 4px; 
+	}
+	
+	ul li.topPaddingFix {
+		padding-top:6px !important;
+	}
+		
+}
+
+div.reduceTopPadding {
+	padding-top:0px !important;
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_eu_zomtec_em2012_domain_Bet" modelAttribute="bet" path="/bets" versionField="Version" z="OOSd8Cnx40M3OsT5Ya/LR+VIsao=">
+        <field:select field="betUser" id="c_eu_zomtec_em2012_domain_Bet_betUser" itemValue="id" items="${betusers}" path="/betusers" required="true" z="zrbpSZvg3X/MrPKCL+5YSTnnEU4="/>
+        <field:select field="game" id="c_eu_zomtec_em2012_domain_Bet_game" itemValue="id" items="${games}" path="/games" required="true" z="qH32N7r+1Rm4pDTY7ZU1QSIMAg0="/>
+        <field:input field="scoreHome" id="c_eu_zomtec_em2012_domain_Bet_scoreHome" validationMessageCode="field_invalid_integer" z="+yXcG71XOQBM88ESw2alWFGPVlk="/>
+        <field:input field="scoreAway" id="c_eu_zomtec_em2012_domain_Bet_scoreAway" validationMessageCode="field_invalid_integer" z="X9XaKbDisLVLltYm89RWOOlYW5c="/>
+        <field:datetime dateTimePattern="${bet_lastbetchange_date_format}" field="lastBetChange" id="c_eu_zomtec_em2012_domain_Bet_lastBetChange" required="true" z="VFM4z5QjbN9aGr8awKCLwqWNg0c="/>
+        <field:datetime dateTimePattern="${bet_lastbetcalculation_date_format}" field="lastBetCalculation" id="c_eu_zomtec_em2012_domain_Bet_lastBetCalculation" z="MV7n1eisJ3fDZDzD20C7YYzGLAo="/>
+        <field:select field="betStatus" id="c_eu_zomtec_em2012_domain_Bet_betStatus" items="${betstatuses}" path="betstatuses" required="true" z="x8Trp1jE7P9HrM9u1eAW49HnfrM="/>
+        <field:select field="scoreType" id="c_eu_zomtec_em2012_domain_Bet_scoreType" items="${betscoretypes}" path="betscoretypes" z="zNhMBDYo8TiZH2yVfL7rPF8cRY8="/>
+        <field:input field="score" id="c_eu_zomtec_em2012_domain_Bet_score" validationMessageCode="field_invalid_integer" z="azCeNgNufqYQkhpsfvFJvW0leoY="/>
+    </form:update>
+</div>

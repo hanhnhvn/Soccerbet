@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<jsp:root version="2.0" xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:tiles="http://tiles.apache.org/tags-tiles"
+	xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:spring="http://www.springframework.org/tags"
+	xmlns:util="urn:jsptagdir:/WEB-INF/tags/util">
+
+		<div data-role="header" data-position="fixed">
+			<h1>
+				<spring:message code="security_login_title" htmlEscape="false" />
+			</h1>
+		</div>
+		<!-- /header -->
+
+		<div data-role="content">
+			<c:if test="${not empty param.login_error}">
+				<div class="errors">
+					<p>
+						<spring:message code="security_login_unsuccessful" />
+						<c:out value="${SPRING_SECURITY_LAST_EXCEPTION.message}" />
+					</p>
+				</div>
+			</c:if>
+				
+			<c:if test="${empty param.login_error}">
+				<p>
+					<spring:message code="security_login_message" />
+				</p>
+			</c:if>
+				
+				
+			<spring:url value="/resources/j_spring_security_check" var="form_url" />
+			<form name="f" action="${fn:escapeXml(form_url)}" method="POST" data-ajax="false">
+				<div>
+					<label for="j_username"> 
+						<spring:message code="security_login_form_name" />
+					</label> 
+					
+					<input id="j_username" type="text" name="j_username" />
+					
+					<spring:message code="security_login_form_name_message" var="name_msg" htmlEscape="false" />
+				</div>
+				
+				<br />
+				
+				<div>
+					<label for="j_password"> 
+						<spring:message code="security_login_form_password" />
+					</label> 
+					
+					<input id="j_password" type="password" name="j_password" />
+					
+					<spring:message code="security_login_form_password_message" var="pwd_msg" htmlEscape="false" />
+				</div>
+				<br />
+				
+				<div>
+					<label for="slider2" style="display:block;"><spring:message code="security_login_form_remember" htmlEscape="false" /></label>
+					
+					<select name="_spring_security_remember_me" id="_spring_security_remember_me" data-role="slider">
+						<option value="false">Off</option>
+						<option value="true">On</option>
+					</select>
+				</div>
+				
+				<br />
+		
+				<fieldset class="ui-grid-a">
+						<div class="ui-block-a"><button id="reset" type="reset" data-theme="d"><spring:message code="button_reset" htmlEscape="false" /></button></div>
+						<div class="ui-block-b"><button id="proceed" type="submit" data-theme="a"><spring:message code="security_login_title" htmlEscape="false" /></button></div>
+			    </fieldset>
+			</form>
+		</div>
+</jsp:root>
